@@ -1,3 +1,4 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,53 +37,55 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsetsDirectional.only(
-        top: 14.h,
-      ),
-      // color: Colors.red,
-      height: 320.h,
-      child: PageView.builder(
-        controller: pageController,
-        itemCount: 5,
-        itemBuilder: (context, position) {
-          return buildPageItem(
-              index: position, currentPageValue: _currentPageValue);
-        },
-      ),
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsetsDirectional.only(
+            top: 14.h,
+          ),
+          // color: Colors.red,
+          height: 320.h,
+          child: PageView.builder(
+            controller: pageController,
+            itemCount: 5,
+            itemBuilder: (context, position) {
+              return buildPageItem(
+                  index: position, currentPageValue: _currentPageValue);
+            },
+          ),
+        ),
+        buildDotsIndicator(currentPageValue: _currentPageValue),
+      ],
     );
   }
 }
 
-Widget buildPageItem({required int index, required double currentPageValue}) {
-  Matrix4 matrix = Matrix4.identity();
-  double scaleFactor = 0.8;
-  double height = 220.h;
-  if (index == currentPageValue.floor()) {
-    var currScale = 1 - (currentPageValue - index) * (1 - scaleFactor);
-    var currTrans = height * (1 - currScale) / 2;
-    matrix = Matrix4.diagonal3Values(1, currScale, 1)
-      ..setTranslationRaw(0, currTrans, 0);
-  } else if (index == currentPageValue.floor() + 1) {
-    var currScale =
-        scaleFactor + (currentPageValue - index + 1) * (1 - scaleFactor);
-    var currTrans = height * (1 - currScale) / 2;
-    matrix = Matrix4.diagonal3Values(1, currScale, 1);
-    matrix = Matrix4.diagonal3Values(1, currScale, 1)
-      ..setTranslationRaw(0, currTrans, 0);
-  } else if (index == currentPageValue.floor() - 1) {
-    var currScale = 1 - (currentPageValue - index) * (1 - scaleFactor);
-    var currTrans = height * (1 - currScale) / 2;
-    matrix = Matrix4.diagonal3Values(1, currScale, 1);
-    matrix = Matrix4.diagonal3Values(1, currScale, 1)
-      ..setTranslationRaw(0, currTrans, 0);
-  } else {
-    var currScale = 0.8;
-    var currTrans = height * (1 - scaleFactor) / 2;
-    matrix = Matrix4.diagonal3Values(1, currScale, 1)
-      ..setTranslationRaw(0, currTrans, 0);
-  }
+Widget buildDotsIndicator({required double currentPageValue}) {
+  ///
+  ///The DotsIndicator for the home page header
+  ///
+  return DotsIndicator(
+    dotsCount: 5,
+    position: currentPageValue,
+    decorator: DotsDecorator(
+      activeColor: AppColors.mainColor,
+      size: const Size.square(9.0),
+      activeSize: const Size(18.0, 9.0),
+      activeShape:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+    ),
+  );
+}
 
+Widget buildPageItem({required int index, required double currentPageValue}) {
+  ///
+  ///The PageItem for the home page header
+  ///
+  Matrix4 matrix = buildHeaderMatrix(index, currentPageValue);
+
+  ///
+  ///Header Slider for the home page header
+  ///
   return Transform(
     transform: matrix,
     child: Stack(
@@ -96,12 +99,20 @@ Widget buildPageItem({required int index, required double currentPageValue}) {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.r),
             color: index.isEven ? Colors.blue : Colors.deepOrange,
+
+            ///
+            ///Header Slider Image for the home page header
+            ///
             image: DecorationImage(
               fit: BoxFit.cover,
               image: assets['food0'],
             ),
           ),
         ),
+
+        ///
+        ///Sub Header Details - Container for the home page header
+        ///
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
@@ -112,9 +123,17 @@ Widget buildPageItem({required int index, required double currentPageValue}) {
               bottom: 30.h,
             ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.r),
-              color: Colors.white,
-            ),
+                borderRadius: BorderRadius.circular(30.r),
+                color: Colors.white,
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0xFFe8e8e8),
+                    blurRadius: 5.0,
+                    offset: Offset(0, 5),
+                  ),
+                  BoxShadow(color: Colors.white, offset: Offset(-5, 0)),
+                  BoxShadow(color: Colors.white, offset: Offset(5, 0)),
+                ]),
             child: Container(
               padding: EdgeInsetsDirectional.only(
                 top: 15.h,
@@ -124,10 +143,16 @@ Widget buildPageItem({required int index, required double currentPageValue}) {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  ///
+                  ///Sub Header Details - Food Name
+                  ///
                   BigText(text: 'Chinese Side'),
                   SizedBox(height: 10.h),
                   Row(
                     children: [
+                      ///
+                      ///Sub Header Details - Food Starts
+                      ///
                       Wrap(
                         children: List.generate(
                           5,
@@ -139,8 +164,16 @@ Widget buildPageItem({required int index, required double currentPageValue}) {
                         ),
                       ),
                       SizedBox(width: 10.w),
+
+                      ///
+                      ///Sub Header Details - Food Starts rate
+                      ///
                       SmallText(text: '4.5'),
                       SizedBox(width: 10.w),
+
+                      ///
+                      ///Sub Header Details - Food num of comments
+                      ///
                       SmallText(text: '1293'),
                       SizedBox(width: 5.w),
                       SmallText(text: 'comments'),
@@ -175,4 +208,38 @@ Widget buildPageItem({required int index, required double currentPageValue}) {
       ],
     ),
   );
+}
+
+Matrix4 buildHeaderMatrix(int index, double currentPageValue) {
+  ///
+  ///The Matrix for transform the home page PageItem
+  ///
+  Matrix4 matrix = Matrix4.identity();
+  double scaleFactor = 0.8;
+  double height = 220.h;
+  if (index == currentPageValue.floor()) {
+    var currScale = 1 - (currentPageValue - index) * (1 - scaleFactor);
+    var currTrans = height * (1 - currScale) / 2;
+    matrix = Matrix4.diagonal3Values(1, currScale, 1)
+      ..setTranslationRaw(0, currTrans, 0);
+  } else if (index == currentPageValue.floor() + 1) {
+    var currScale =
+        scaleFactor + (currentPageValue - index + 1) * (1 - scaleFactor);
+    var currTrans = height * (1 - currScale) / 2;
+    matrix = Matrix4.diagonal3Values(1, currScale, 1);
+    matrix = Matrix4.diagonal3Values(1, currScale, 1)
+      ..setTranslationRaw(0, currTrans, 0);
+  } else if (index == currentPageValue.floor() - 1) {
+    var currScale = 1 - (currentPageValue - index) * (1 - scaleFactor);
+    var currTrans = height * (1 - currScale) / 2;
+    matrix = Matrix4.diagonal3Values(1, currScale, 1);
+    matrix = Matrix4.diagonal3Values(1, currScale, 1)
+      ..setTranslationRaw(0, currTrans, 0);
+  } else {
+    var currScale = 0.8;
+    var currTrans = height * (1 - scaleFactor) / 2;
+    matrix = Matrix4.diagonal3Values(1, currScale, 1)
+      ..setTranslationRaw(0, currTrans, 0);
+  }
+  return matrix;
 }
