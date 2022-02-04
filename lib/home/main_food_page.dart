@@ -37,7 +37,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                         Row(
                           children: [
                             SmallText(text: 'Cairo', color: Colors.black54),
-                            Icon(Icons.arrow_drop_down_rounded,size: 24.w)
+                            Icon(Icons.arrow_drop_down_rounded, size: 24.w)
                           ],
                         ),
                       ],
@@ -61,7 +61,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 ),
               ),
             ),
-            FoodPageBody(),
+            const Expanded(
+              child: SingleChildScrollView(
+                child: FoodPageBody(),
+              ),
+            ),
           ],
         ),
       ),
