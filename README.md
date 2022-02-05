@@ -6,3 +6,6 @@
 - get 
 - flutter screenutil
 - dots indicator
+# Screenshot's 
+
+![](Screenshot/Capture.PNG)
