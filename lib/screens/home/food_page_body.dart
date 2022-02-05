@@ -1,12 +1,12 @@
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/helper/assets_helper.dart';
 import 'package:food_flutter_app/utils/colors.dart';
 import 'package:food_flutter_app/widgets/big_text.dart';
-import 'package:food_flutter_app/widgets/icon_with_text.dart';
 import 'package:food_flutter_app/widgets/small_text.dart';
+
+import '../components.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);
@@ -109,7 +109,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           SizedBox(height: 8.h),
                           SmallText(text: 'With chinese characteristics'),
                           const Spacer(),
-                          buildSubHeaderDetailsRow(),
+                          buildSubHeaderDetailsRowIcons(),
                         ],
                       ),
                     ),
@@ -239,74 +239,13 @@ Widget buildSubHeaderHomePage() {
           start: 25.w,
           end: 25.w,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ///
-            ///Sub Header Details - Food Name
-            ///
-            BigText(text: 'Chinese Side'),
-            SizedBox(height: 10.h),
-            Row(
-              children: [
-                ///
-                ///Sub Header Details - Food Starts
-                ///
-                Wrap(
-                  children: List.generate(
-                    5,
-                    (index) => Icon(
-                      Icons.star,
-                      color: AppColors.mainColor,
-                      size: 15.w,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 10.w),
 
-                ///
-                ///Sub Header Details - Food Starts rate
-                ///
-                SmallText(text: '4.5'),
-                SizedBox(width: 10.w),
-
-                ///
-                ///Sub Header Details - Food num of comments
-                ///
-                SmallText(text: '1293'),
-                SizedBox(width: 5.w),
-                SmallText(text: 'comments'),
-              ],
-            ),
-            SizedBox(height: 10.h),
-            buildSubHeaderDetailsRow()
-          ],
-        ),
+        ///
+        ///Sub Header Details
+        ///
+        child: buildSubHeaderDetails(),
       ),
     ),
-  );
-}
-
-Row buildSubHeaderDetailsRow() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: const [
-      IconText(
-        icon: Icons.circle_sharp,
-        text: 'Normal',
-        iconColor: AppColors.iconColor1,
-      ),
-      IconText(
-        icon: Icons.location_on,
-        text: '1.7Km',
-        iconColor: AppColors.mainColor,
-      ),
-      IconText(
-        icon: Icons.access_time_rounded,
-        text: '32min',
-        iconColor: AppColors.iconColor2,
-      ),
-    ],
   );
 }
 
