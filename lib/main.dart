@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/screens/food/popular_food_details.dart';
+import 'package:food_flutter_app/screens/food/recommended_food_detail.dart';
 import 'package:food_flutter_app/screens/home/main_food_page.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 

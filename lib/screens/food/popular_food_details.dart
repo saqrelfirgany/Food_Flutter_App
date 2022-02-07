@@ -73,17 +73,19 @@ class PopularFoodDetails extends StatelessWidget {
                     const Expanded(
                       child: SingleChildScrollView(
                         child: ExpandableText(
-                          text: '109772713_2167512083394135_628893987691'
-                              '109772713_2167512083394135_628893987691'
-                              '109772713_2167512083394135_628893987691'
-                              '109772713_2167512083394135_628893987691'
-                              '109772713_2167512083394135_628893987691'
-                              '109772713_2167512083394135_628893987691'
-                              '109772713_2167512083394135_628893987691'
-                              '109772713_2167512083394135_628893987691'
-                              '109772713_2167512083394135_628893987691'
-                              '109772713_2167512083394135_628893987691'
-                              '109772713_2167512083394135_628893987691',
+                          text: 'When you get to know easy Chinese side dishes,'
+                              ' you will realize the shared feature among them is that they are so versatile'
+                              ' to be served with every main course. In addition, they can be prepared quickly'
+                              ' and consumed for light meals, lunches, or dinners.'
+                              'To me, Chinese cuisine is so special, with ultimate'
+                              ' cooking methods that turn simple ingredients into glorious dishes.'
+                              'For example, to make the sauteed broccoli dish, the veggie needs to be poached before'
+                              ' it is stir-fried with traditional seasonings. This creates the desired color, texture,'
+                              ' and of course, flavors of the veggie.'
+                              'Chinese-styled sides do not require you to spend much time on'
+                              ' the dishes’ appearance. Instead, savory flavors are the main focus.'
+                              'Everything seems to be simple at first glance until you taste them. I must '
+                              'say that it will be an explosion and bursting with flavors in your mouth!',
                         ),
                       ),
                     ),
