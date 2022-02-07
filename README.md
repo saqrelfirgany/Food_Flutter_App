@@ -1,12 +1,13 @@
 # Food Flutter App
 
-#### The Project structure and home screen until now
+#### The Project structure and home screen until now.
+#### Details screen.
 
 #### Packages:
-- get 
-- flutter screenutil
-- dots indicator
-# Screenshot's 
+- Get 
+- Flutter Screen Util
+- Dots Indicator
+# Screenshots 
 
 ![](Screenshot/Capture.PNG)
 ![](Screenshot/Capture1.PNG)
