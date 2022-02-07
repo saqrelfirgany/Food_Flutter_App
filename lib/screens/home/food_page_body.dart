@@ -243,7 +243,7 @@ Widget buildSubHeaderHomePage() {
         ///
         ///Sub Header Details
         ///
-        child: buildSubHeaderDetails(),
+        child: buildSubHeaderDetails(text: 'Chinese Side'),
       ),
     ),
   );

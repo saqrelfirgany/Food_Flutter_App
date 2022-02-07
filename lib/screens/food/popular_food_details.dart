@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/helper/assets_helper.dart';
+import 'package:food_flutter_app/utils/colors.dart';
 import 'package:food_flutter_app/widgets/app_icon.dart';
+import 'package:food_flutter_app/widgets/big_text.dart';
+import 'package:food_flutter_app/widgets/expandable_text.dart';
 
 import '../components.dart';
 
@@ -11,9 +14,11 @@ class PopularFoodDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Stack(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        bottomNavigationBar: buildBottomNavigationBar(),
+        body: Stack(
           children: [
             PositionedDirectional(
               start: 0,
@@ -58,7 +63,32 @@ class PopularFoodDetails extends StatelessWidget {
                   ),
                   color: Colors.white,
                 ),
-                child: buildSubHeaderDetails(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    buildSubHeaderDetails(text: 'Chinese Side'),
+                    SizedBox(height: 24.h),
+                    BigText(text: 'Introduce'),
+                    SizedBox(height: 18.h),
+                    const Expanded(
+                      child: SingleChildScrollView(
+                        child: ExpandableText(
+                          text: '109772713_2167512083394135_628893987691'
+                              '109772713_2167512083394135_628893987691'
+                              '109772713_2167512083394135_628893987691'
+                              '109772713_2167512083394135_628893987691'
+                              '109772713_2167512083394135_628893987691'
+                              '109772713_2167512083394135_628893987691'
+                              '109772713_2167512083394135_628893987691'
+                              '109772713_2167512083394135_628893987691'
+                              '109772713_2167512083394135_628893987691'
+                              '109772713_2167512083394135_628893987691'
+                              '109772713_2167512083394135_628893987691',
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
