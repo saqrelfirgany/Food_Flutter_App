@@ -17,7 +17,7 @@ class PopularFoodDetails extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        bottomNavigationBar: buildBottomNavigationBar(),
+        bottomNavigationBar: bottomNavBarPopularFood(iconChild: bottomNavBarNegativeAddIcons()),
         body: Stack(
           children: [
             PositionedDirectional(

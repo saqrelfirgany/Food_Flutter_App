@@ -5,7 +5,10 @@ import 'package:food_flutter_app/widgets/big_text.dart';
 import 'package:food_flutter_app/widgets/icon_with_text.dart';
 import 'package:food_flutter_app/widgets/small_text.dart';
 
-Widget buildBottomNavigationBar() {
+Widget bottomNavBarPopularFood({
+  required Widget iconChild,
+  double iconChildWidth = 90,
+}) {
   return Container(
     height: 100.h,
     padding: EdgeInsetsDirectional.all(20.w),
@@ -22,7 +25,7 @@ Widget buildBottomNavigationBar() {
       children: [
         Container(
           height: 55.h,
-          width: 90.w,
+          width: iconChildWidth.w,
           margin: EdgeInsetsDirectional.only(
             start: 10.w,
             bottom: 10.h,
@@ -31,23 +34,7 @@ Widget buildBottomNavigationBar() {
             color: Colors.white,
             borderRadius: BorderRadiusDirectional.circular(14.r),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.remove,
-                color: AppColors.signColor,
-                size: 30.w,
-              ),
-              BigText(text: '0'),
-              Icon(
-                Icons.add,
-                color: AppColors.signColor,
-                size: 30.w,
-              ),
-            ],
-          ),
+          child: iconChild,
         ),
         Container(
           height: 55.h,
@@ -69,6 +56,26 @@ Widget buildBottomNavigationBar() {
         ),
       ],
     ),
+  );
+}
+
+Widget bottomNavBarNegativeAddIcons() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Icon(
+        Icons.remove,
+        color: AppColors.signColor,
+        size: 30.w,
+      ),
+      BigText(text: '0'),
+      Icon(
+        Icons.add,
+        color: AppColors.signColor,
+        size: 30.w,
+      ),
+    ],
   );
 }
 
