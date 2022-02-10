@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 class PopularProductRepo extends GetxService {
   final ApiClient apiClient;
 
-  PopularProductRepo({required this.apiClient})
+  PopularProductRepo({required this.apiClient});
 
   Future<Response> getPopularProduct() async {
-    return await apiClient.getData('');
+    return await apiClient.getData("/api/v1/product/popular");
   }
 }
