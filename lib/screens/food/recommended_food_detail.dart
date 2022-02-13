@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_flutter_app/helper/assets_helper.dart';
+import 'package:food_flutter_app/utils/assets_helper.dart';
 import 'package:food_flutter_app/utils/colors.dart';
 import 'package:food_flutter_app/widgets/app_icon.dart';
 import 'package:food_flutter_app/widgets/big_text.dart';
