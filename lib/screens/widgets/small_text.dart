@@ -7,6 +7,7 @@ class SmallText extends StatelessWidget {
   String text;
   double size;
   double height;
+  bool overFlow;
 
   SmallText({
     Key? key,
@@ -14,12 +15,14 @@ class SmallText extends StatelessWidget {
     required this.text,
     this.height = 1.2,
     this.size = 14,
+    this.overFlow = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      overflow: overFlow ? TextOverflow.ellipsis : TextOverflow.visible,
       style: TextStyle(
         height: height,
         color: color,

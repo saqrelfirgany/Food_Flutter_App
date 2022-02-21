@@ -8,7 +8,7 @@ class ApiClient extends GetConnect implements GetxService {
 
   ApiClient({required this.appBaseUrl}) {
     baseUrl = appBaseUrl;
-    timeout = const Duration(minutes: 5);
+    timeout = const Duration(seconds: 30);
     token = AppConstants.token;
     _mainHeaders = {
       'Content-type': 'application/json; charset=UTF-8',
@@ -19,7 +19,6 @@ class ApiClient extends GetConnect implements GetxService {
   Future<dynamic> getData(String uri) async {
     try {
       final response = await get(uri);
-      print(response.body);
       return response;
     } catch (e) {
       return Response(statusCode: 1, statusText: e.toString());

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_flutter_app/screens/widgets/big_text.dart';
+import 'package:food_flutter_app/screens/widgets/icon_with_text.dart';
+import 'package:food_flutter_app/screens/widgets/small_text.dart';
 import 'package:food_flutter_app/utils/colors.dart';
-import 'package:food_flutter_app/widgets/big_text.dart';
-import 'package:food_flutter_app/widgets/icon_with_text.dart';
-import 'package:food_flutter_app/widgets/small_text.dart';
 
 Widget bottomNavBarPopularFood({
   required Widget iconChild,
@@ -34,7 +34,7 @@ Widget bottomNavBarPopularFood({
             color: Colors.white,
             borderRadius: BorderRadiusDirectional.circular(14.r),
           ),
-          child: iconChild,
+          child: Icon(Icons.favorite, color: AppColors.mainColor),
         ),
         Container(
           height: 55.h,
@@ -79,49 +79,41 @@ Widget bottomNavBarNegativeAddIcons() {
   );
 }
 
-Widget buildSubHeaderDetails({required String text}) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      ///
-      ///Sub Header Details - Food Name
-      ///
-      BigText(text: text),
-      SizedBox(height: 10.h),
-      Row(
-        children: [
-          ///
-          ///Sub Header Details - Food Starts
-          ///
-          Wrap(
-            children: List.generate(
-              5,
-              (index) => Icon(
-                Icons.star,
-                color: AppColors.mainColor,
-                size: 15.w,
-              ),
-            ),
-          ),
-          SizedBox(width: 10.w),
-
-          ///
-          ///Sub Header Details - Food Starts rate
-          ///
-          SmallText(text: '4.5'),
-          SizedBox(width: 10.w),
-
-          ///
-          ///Sub Header Details - Food num of comments
-          ///
-          SmallText(text: '1293'),
-          SizedBox(width: 5.w),
-          SmallText(text: 'comments'),
-        ],
+Widget subHeaderHomePageContainer({required Widget detailsChild}) {
+  return Align(
+    alignment: Alignment.bottomCenter,
+    child: Container(
+      height: 120.h,
+      margin: EdgeInsetsDirectional.only(
+        start: 30.w,
+        end: 30.w,
+        bottom: 30.h,
       ),
-      SizedBox(height: 10.h),
-      buildSubHeaderDetailsRowIcons()
-    ],
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30.r),
+          color: Colors.white,
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0xFFe8e8e8),
+              blurRadius: 5.0,
+              offset: Offset(0, 5),
+            ),
+            BoxShadow(color: Colors.white, offset: Offset(-5, 0)),
+            BoxShadow(color: Colors.white, offset: Offset(5, 0)),
+          ]),
+      child: Container(
+        padding: EdgeInsetsDirectional.only(
+          top: 15.h,
+          start: 25.w,
+          end: 25.w,
+        ),
+
+        ///
+        ///Sub Header Details
+        ///
+        child: detailsChild,
+      ),
+    ),
   );
 }
 

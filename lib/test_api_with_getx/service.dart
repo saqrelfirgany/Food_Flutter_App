@@ -1,4 +1,4 @@
-import 'package:food_flutter_app/yummly/post_model.dart';
+import 'package:food_flutter_app/test_api_with_getx/post_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 

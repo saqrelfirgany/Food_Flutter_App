@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_flutter_app/utils/colors.dart';
-import 'package:food_flutter_app/widgets/small_text.dart';
+import 'package:food_flutter_app/screens/widgets/small_text.dart';
 
 class IconText extends StatelessWidget {
   final IconData icon;

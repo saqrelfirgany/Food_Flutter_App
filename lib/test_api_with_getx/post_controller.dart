@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:food_flutter_app/yummly/service.dart';
+import 'package:food_flutter_app/test_api_with_getx/service.dart';
 import 'package:get/get.dart';
 
 import 'post_model.dart';
