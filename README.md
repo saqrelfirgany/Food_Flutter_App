@@ -11,11 +11,11 @@
 - Dots Indicator
 # Screenshots 
 
-![](Screenshot/0.PNG)
-![](Screenshot/Screenshot_2022-02-21-18-22-58.png.PNG)
-![](Screenshot/Screenshot_2022-02-21-18-23-08.PNG)
-![](Screenshot/Screenshot_2022-02-21-18-23-13.PNG)
-![](Screenshot/Screenshot_2022-02-21-18-23-17.PNG)
-![](Screenshot/Screenshot_2022-02-21-18-23-36.PNG)
-![](Screenshot/Screenshot_2022-02-21-18-23-40.PNG)
-![](Screenshot/Screenshot_2022-02-21-18-23-46.PNG)
+![](Screenshot/0.png)
+![](Screenshot/1.png)
+![](Screenshot/3.png)
+![](Screenshot/4.png)
+![](Screenshot/5.png)
+![](Screenshot/6.png)
+![](Screenshot/7.png)
+![](Screenshot/8.png)
