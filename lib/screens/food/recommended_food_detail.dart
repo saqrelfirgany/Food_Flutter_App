@@ -113,7 +113,7 @@ class RecommendedFoodDetail extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                  onTap: () => Get.offAndToNamed('/'),
+                  onTap: () => Get.toNamed('/'),
                   child: AppIcon(icon: Icons.clear),
                 ),
                 AppIcon(icon: Icons.shopping_cart_outlined),
