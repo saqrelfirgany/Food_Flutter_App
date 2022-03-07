@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/controllers/recommended_controller.dart';
-import 'package:food_flutter_app/screens/widgets/big_text.dart';
-import 'package:food_flutter_app/screens/widgets/small_text.dart';
 import 'package:food_flutter_app/utils/app_constants.dart';
 import 'package:food_flutter_app/utils/assets_helper.dart';
 import 'package:food_flutter_app/utils/colors.dart';
@@ -11,6 +9,8 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 import '../components.dart';
+import '../widgets/big_text.dart';
+import '../widgets/small_text.dart';
 
 class RecommendedFoodList extends StatelessWidget {
   const RecommendedFoodList({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class RecommendedFoodList extends StatelessWidget {
               itemCount: recommendedController.recommendedList.length,
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap: () => Get.toNamed('/recommended-food-detail?pageId=$index'),
+                  onTap: () => Get.toNamed('/recommended-popular-detail?pageId=$index'),
                   child: Container(
                     margin: EdgeInsetsDirectional.only(
                       start: 20.w,

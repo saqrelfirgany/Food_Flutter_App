@@ -1,9 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_flutter_app/screens/widgets/big_text.dart';
-import 'package:food_flutter_app/screens/widgets/icon_with_text.dart';
-import 'package:food_flutter_app/screens/widgets/small_text.dart';
+import 'package:food_flutter_app/ui/widgets/app_icon.dart';
+import 'package:food_flutter_app/ui/widgets/big_text.dart';
+import 'package:food_flutter_app/ui/widgets/icon_with_text.dart';
 import 'package:food_flutter_app/utils/colors.dart';
+import 'package:get/get_state_manager/src/simple/get_state.dart';
+
+import '../controllers/popular_product_controller.dart';
+
+///
+/// Cart Icon
+///
+Widget cartIcon() {
+  return GetBuilder<PopularProductController>(
+    builder: (controller) => Stack(
+      clipBehavior: Clip.none,
+      children: [
+        const AppIcon(
+          icon: Icons.shopping_cart_outlined,
+          iconSize: 16,
+        ),
+        controller.totalItems >= 1
+            ? PositionedDirectional(
+                end: -5.w,
+                bottom: -2.h,
+                child: const AppIcon(
+                  icon: Icons.circle,
+                  containerSize: 24,
+                  iconColor: Colors.transparent,
+                  backgroundColor: AppColors.mainColor,
+                ),
+              )
+            : Container(),
+        controller.totalItems >= 1
+            ? PositionedDirectional(
+                end: 0,
+                bottom: 0,
+                child: BigText(
+                  text: controller.totalItems.toString(),
+                  size: 16,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+            : Container(),
+      ],
+    ),
+  );
+}
 
 Widget bottomNavBarPopularFood({
   required Widget iconChild,

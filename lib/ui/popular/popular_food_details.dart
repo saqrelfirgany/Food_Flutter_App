@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/controllers/cart_controller.dart';
 import 'package:food_flutter_app/controllers/popular_product_controller.dart';
-import 'package:food_flutter_app/screens/home/food_page_body.dart';
-import 'package:food_flutter_app/screens/widgets/app_icon.dart';
-import 'package:food_flutter_app/screens/widgets/big_text.dart';
-import 'package:food_flutter_app/screens/widgets/expandable_text.dart';
 import 'package:food_flutter_app/utils/app_constants.dart';
 import 'package:food_flutter_app/utils/colors.dart';
 import 'package:get/get.dart';
 
 import '../components.dart';
+import '../home/food_page_body.dart';
+import '../widgets/app_icon.dart';
+import '../widgets/big_text.dart';
+import '../widgets/expandable_text.dart';
 
 class PopularFoodDetails extends StatelessWidget {
   final int pageId;
@@ -133,7 +133,11 @@ class PopularFoodDetails extends StatelessWidget {
                     onTap: () => Get.toNamed('/'),
                     child: const AppIcon(icon: Icons.arrow_back_ios),
                   ),
-                  const AppIcon(icon: Icons.shopping_cart_outlined),
+
+                  ///
+                  /// Cart Icon
+                  ///
+                  cartIcon(),
                 ],
               ),
             ),

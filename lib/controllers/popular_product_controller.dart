@@ -68,13 +68,9 @@ class PopularProductController extends GetxController {
     _cart = cart;
     var exist = false;
     exist = _cart.existInCart(product);
-    print('Exist or not :$exist');
     if (exist) {
       _inCartItem = cart.getQuantity(product);
     }
-    print('getQuantity :$_inCartItem');
-    //if exist
-    //get from storage
   }
 
   void addItem(ProductModel product) {
@@ -85,5 +81,10 @@ class PopularProductController extends GetxController {
     _cart.addItem(product, quantity);
     _quantity = 0;
     _inCartItem = _cart.getQuantity(product);
+    update();
+  }
+
+  int get totalItems {
+    return _cart.totalItems;
   }
 }

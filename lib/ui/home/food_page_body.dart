@@ -4,12 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/controllers/popular_product_controller.dart';
 import 'package:food_flutter_app/controllers/recommended_controller.dart';
 import 'package:food_flutter_app/models/products_model.dart';
-import 'package:food_flutter_app/screens/widgets/big_text.dart';
-import 'package:food_flutter_app/screens/widgets/small_text.dart';
+import 'package:food_flutter_app/ui/widgets/big_text.dart';
+import 'package:food_flutter_app/ui/widgets/small_text.dart';
 import 'package:food_flutter_app/utils/app_constants.dart';
 import 'package:food_flutter_app/utils/assets_helper.dart';
 import 'package:food_flutter_app/utils/colors.dart';
 import 'package:get/get.dart';
+
 
 import '../components.dart';
 import 'recommended_food_list.dart';
@@ -125,7 +126,7 @@ Widget buildPageItem({
       children: [
         GestureDetector(
           onTap: () {
-            Get.toNamed('/popular-food?pageId=$index');
+            Get.toNamed('/popular-popular?pageId=$index');
           },
           child: Container(
             height: 220.h,

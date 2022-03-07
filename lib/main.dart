@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/controllers/popular_product_controller.dart';
 import 'package:food_flutter_app/controllers/recommended_controller.dart';
 import 'package:food_flutter_app/route/routes.dart';
-import 'package:food_flutter_app/screens/home/main_food_page.dart';
 import 'package:get/get.dart';
 import 'core/dependencies/dependencies.dart' as dep;
 
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
     Get.find<RecommendedController>().getRecommendedProductList();
     // Get.find<PostController>().getPosts;
     return ScreenUtilInit(
-      designSize: const Size(428, 926),
+      designSize: const Size(393, 830),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: () => GetMaterialApp(
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         getPages: routes,
-        home: const MainFoodPage(),
+        // home: const MainFoodPage(),
       ),
     );
   }

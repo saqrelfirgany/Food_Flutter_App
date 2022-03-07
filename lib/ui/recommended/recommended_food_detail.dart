@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/controllers/recommended_controller.dart';
-import 'package:food_flutter_app/screens/widgets/app_icon.dart';
-import 'package:food_flutter_app/screens/widgets/big_text.dart';
-import 'package:food_flutter_app/screens/widgets/expandable_text.dart';
 import 'package:food_flutter_app/utils/app_constants.dart';
 import 'package:food_flutter_app/utils/assets_helper.dart';
 import 'package:food_flutter_app/utils/colors.dart';
@@ -12,6 +9,9 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 
 import '../components.dart';
+import '../widgets/app_icon.dart';
+import '../widgets/big_text.dart';
+import '../widgets/expandable_text.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;
@@ -114,9 +114,9 @@ class RecommendedFoodDetail extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () => Get.toNamed('/'),
-                  child: AppIcon(icon: Icons.clear),
+                  child: AppIcon(icon: Icons.clear,iconSize: 16),
                 ),
-                AppIcon(icon: Icons.shopping_cart_outlined),
+                AppIcon(icon: Icons.shopping_cart_outlined,iconSize: 16),
               ],
             ),
             bottom: PreferredSize(

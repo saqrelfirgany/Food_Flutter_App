@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_flutter_app/screens/widgets/small_text.dart';
+import 'package:food_flutter_app/ui/widgets/small_text.dart';
 import 'package:food_flutter_app/utils/colors.dart';
 
 class ExpandableText extends StatefulWidget {
