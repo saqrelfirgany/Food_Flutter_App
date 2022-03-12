@@ -8,6 +8,7 @@ class AppIcon extends StatelessWidget {
   final Color iconColor;
   final double containerSize;
   final double iconSize;
+  final double padding;
 
   const AppIcon({
     Key? key,
@@ -16,6 +17,7 @@ class AppIcon extends StatelessWidget {
     this.iconColor = const Color(0xFF756d45),
     this.containerSize = 45,
     this.iconSize = 16,
+    this.padding = 0,
   }) : super(key: key);
 
   @override
@@ -23,6 +25,9 @@ class AppIcon extends StatelessWidget {
     return Container(
       height: containerSize.w,
       width: containerSize.w,
+      padding: EdgeInsetsDirectional.only(
+        start: padding.w,
+      ),
       decoration: BoxDecoration(
         borderRadius: BorderRadiusDirectional.circular(containerSize.r),
         color: backgroundColor,

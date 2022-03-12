@@ -4,47 +4,97 @@ import 'package:food_flutter_app/ui/widgets/app_icon.dart';
 import 'package:food_flutter_app/ui/widgets/big_text.dart';
 import 'package:food_flutter_app/ui/widgets/icon_with_text.dart';
 import 'package:food_flutter_app/utils/colors.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 
+import '../controllers/cart_controller.dart';
 import '../controllers/popular_product_controller.dart';
+
+///
+/// add and Remove Icons Bottom Navigation Bar Details screen
+///
+Widget addRemoveIcon( {double margin = 10}) {
+  return Container(
+    height: 55.h,
+    width: 90.w,
+    margin: EdgeInsetsDirectional.only(
+      start: margin.w,
+      bottom: margin.h,
+    ),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadiusDirectional.circular(14.r),
+    ),
+    child: GetBuilder<PopularProductController>(
+      builder: (controller) => Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          GestureDetector(
+            onTap: () => controller.setQuantity(false),
+            child: Icon(
+              Icons.remove,
+              color: AppColors.signColor,
+              size: 30.w,
+            ),
+          ),
+          BigText(text: '${controller.inCartItem}'),
+          GestureDetector(
+            onTap: () => controller.setQuantity(true),
+            child: Icon(
+              Icons.add,
+              color: AppColors.signColor,
+              size: 30.w,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
 
 ///
 /// Cart Icon
 ///
 Widget cartIcon() {
+  // Get.find<CartController>();
   return GetBuilder<PopularProductController>(
-    builder: (controller) => Stack(
-      clipBehavior: Clip.none,
-      children: [
-        const AppIcon(
-          icon: Icons.shopping_cart_outlined,
-          iconSize: 16,
-        ),
-        controller.totalItems >= 1
-            ? PositionedDirectional(
-                end: -5.w,
-                bottom: -2.h,
-                child: const AppIcon(
-                  icon: Icons.circle,
-                  containerSize: 24,
-                  iconColor: Colors.transparent,
-                  backgroundColor: AppColors.mainColor,
-                ),
-              )
-            : Container(),
-        controller.totalItems >= 1
-            ? PositionedDirectional(
-                end: 0,
-                bottom: 0,
-                child: BigText(
-                  text: controller.totalItems.toString(),
-                  size: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              )
-            : Container(),
-      ],
+    builder: (controller) => InkWell(
+      onTap: () => Get.toNamed('/cart-screen'),
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          const AppIcon(
+            icon: Icons.shopping_cart_outlined,
+            iconSize: 16,
+          ),
+          controller.totalItems >= 1
+              ? PositionedDirectional(
+                  end: -5.w,
+                  bottom: -2.h,
+                  child: const AppIcon(
+                    icon: Icons.circle,
+                    containerSize: 24,
+                    iconColor: Colors.transparent,
+                    backgroundColor: AppColors.mainColor,
+                  ),
+                )
+              : Container(),
+          controller.totalItems >= 1
+              ? PositionedDirectional(
+                  end: 0,
+                  bottom: 0,
+                  child: BigText(
+                    text: controller.totalItems.toString(),
+                    size: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              : Container(),
+        ],
+      ),
     ),
   );
 }

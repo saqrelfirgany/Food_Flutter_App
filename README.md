@@ -6,13 +6,16 @@
 #### Cart Functionality.
 
 #### Packages:
-- Get 
-- Flutter Screen Util
-- Dots Indicator
+- get 
+- flutter_screenutil
+- dots_indicator
+- persistent_bottom_nav_bar
+- device_preview
 # Screenshots 
 
 ![](Screenshot/0.png)
 ![](Screenshot/1.png)
+![](Screenshot/2.png)
 ![](Screenshot/3.png)
 ![](Screenshot/4.png)
 ![](Screenshot/5.png)

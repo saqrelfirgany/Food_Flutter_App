@@ -42,43 +42,10 @@ class PopularFoodDetails extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                height: 55.h,
-                width: 90.w,
-                margin: EdgeInsetsDirectional.only(
-                  start: 10.w,
-                  bottom: 10.h,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadiusDirectional.circular(14.r),
-                ),
-                child: GetBuilder<PopularProductController>(
-                  builder: (controller) => Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: () => controller.setQuantity(false),
-                        child: Icon(
-                          Icons.remove,
-                          color: AppColors.signColor,
-                          size: 30.w,
-                        ),
-                      ),
-                      BigText(text: '${controller.inCartItem}'),
-                      GestureDetector(
-                        onTap: () => controller.setQuantity(true),
-                        child: Icon(
-                          Icons.add,
-                          color: AppColors.signColor,
-                          size: 30.w,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              ///
+              /// add and Remove Icons Bottom Navigation Bar
+              ///
+              addRemoveIcon(),
               Container(
                 height: 55.h,
                 width: 240.w,
@@ -131,7 +98,10 @@ class PopularFoodDetails extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () => Get.toNamed('/'),
-                    child: const AppIcon(icon: Icons.arrow_back_ios),
+                    child: const AppIcon(
+                      icon: Icons.arrow_back_ios,
+                      padding: 4,
+                    ),
                   ),
 
                   ///

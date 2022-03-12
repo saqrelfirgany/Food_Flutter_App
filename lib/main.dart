@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/controllers/popular_product_controller.dart';
@@ -9,7 +10,13 @@ import 'core/dependencies/dependencies.dart' as dep;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dep.init();
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: true,
+      tools: [...DevicePreview.defaultTools],
+      builder: (context) => const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -35,7 +42,7 @@ class MyApp extends StatelessWidget {
           );
         },
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Food App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

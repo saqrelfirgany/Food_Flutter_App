@@ -1,8 +1,10 @@
+import 'package:food_flutter_app/ui/cart/cart_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
 import '../ui/home/main_food_page.dart';
+import '../ui/main_screen.dart';
 import '../ui/popular/popular_food_details.dart';
 import '../ui/recommended/recommended_food_detail.dart';
 
@@ -12,7 +14,7 @@ List<GetPage> routes = [
   ///
   GetPage(
     name: '/',
-    page: () => const MainFoodPage(),
+    page: () => const MainScreen(),
     // transition: Transition.noTransition,
     //Get.toNamed('/main-layout');
   ),
@@ -39,6 +41,11 @@ List<GetPage> routes = [
       var index = Get.parameters['pageId'];
       return RecommendedFoodDetail(pageId: int.parse(index!));
     },
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: '/cart-screen',
+    page: () => const CartScreen(),
     transition: Transition.fadeIn,
   ),
 ];
