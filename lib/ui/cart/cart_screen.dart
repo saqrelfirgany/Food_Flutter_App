@@ -10,6 +10,7 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../../controllers/popular_product_controller.dart';
 import '../../controllers/recommended_controller.dart';
+import '../../route/routes.dart';
 import '../../utils/assets_helper.dart';
 import '../components.dart';
 import '../widgets/app_icon.dart';
@@ -85,7 +86,7 @@ class CartScreen extends GetWidget<CartController> {
                   ),
                   SizedBox(width: 100.w),
                   InkWell(
-                    onTap: () => Get.toNamed('/'),
+                    onTap: () => Get.offAllNamed(Routes.mainScreen),
                     child: const AppIcon(
                       icon: Icons.home_outlined,
                       iconColor: Colors.white,

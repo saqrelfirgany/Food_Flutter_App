@@ -6,6 +6,7 @@ import 'package:food_flutter_app/utils/app_constants.dart';
 import 'package:food_flutter_app/utils/colors.dart';
 import 'package:get/get.dart';
 
+import '../../route/routes.dart';
 import '../components.dart';
 import '../home/food_page_body.dart';
 import '../widgets/app_icon.dart';
@@ -97,7 +98,7 @@ class PopularFoodDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: () => Get.toNamed('/'),
+                    onTap: () => Get.offAndToNamed(Routes.mainScreen),
                     child: const AppIcon(
                       icon: Icons.arrow_back_ios,
                       padding: 4,

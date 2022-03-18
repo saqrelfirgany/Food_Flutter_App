@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/controllers/recommended_controller.dart';
+import 'package:food_flutter_app/route/routes.dart';
 import 'package:food_flutter_app/ui/recommended/recommended_components.dart';
 import 'package:food_flutter_app/utils/app_constants.dart';
 import 'package:food_flutter_app/utils/assets_helper.dart';
@@ -42,7 +43,7 @@ class RecommendedFoodDetail extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                  onTap: () => Get.toNamed('/'),
+                  onTap: () => Get.offAndToNamed(Routes.mainScreen),
                   child: AppIcon(icon: Icons.clear, iconSize: 16),
                 ),
                 cartIcon(),
