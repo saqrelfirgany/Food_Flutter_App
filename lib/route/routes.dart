@@ -7,16 +7,31 @@ import '../ui/home/main_food_page.dart';
 import '../ui/main_screen.dart';
 import '../ui/popular/popular_food_details.dart';
 import '../ui/recommended/recommended_food_detail.dart';
+import '../ui/splash/splash_screen.dart';
+
+class Routes {
+  static const splash = '/';
+  static const mainScreen = '/main-screen';
+  static const detailScreen = '/detail-screen';
+}
 
 List<GetPage> routes = [
+  ///
+  /// Splash Screen
+  ///
+  GetPage(
+    name: Routes.splash,
+    page: () => const SplashScreen(),
+    transition: Transition.fadeIn,
+  ),
+
   ///
   /// Main Screen
   ///
   GetPage(
-    name: '/',
+    name: Routes.mainScreen,
     page: () => const MainScreen(),
-    // transition: Transition.noTransition,
-    //Get.toNamed('/main-layout');
+    transition: Transition.fadeIn,
   ),
 
   /// -------------------------------------------------------------

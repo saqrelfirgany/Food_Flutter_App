@@ -11,10 +11,41 @@ import 'package:get/get_state_manager/src/simple/get_state.dart';
 import '../controllers/cart_controller.dart';
 import '../controllers/popular_product_controller.dart';
 
+Widget textFormContainer({required Widget child}) {
+  return Container(
+    margin: EdgeInsetsDirectional.only(
+      start: 20.w,
+      end: 20.w,
+    ),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(40.r),
+      color: Colors.white,
+      boxShadow: [
+        BoxShadow(
+          blurRadius: 10,
+          spreadRadius: 7,
+          offset: Offset(1, 10),
+          color: Colors.grey.withOpacity(0.2),
+        ),
+      ],
+    ),
+    child: child,
+  );
+}
+
+void getSnackBar({required String title, required String body}) {
+  Get.snackbar(
+    title,
+    body,
+    snackPosition: SnackPosition.BOTTOM,
+    duration: const Duration(seconds: 3),
+  );
+}
+
 ///
 /// add and Remove Icons Bottom Navigation Bar Details screen
 ///
-Widget addRemoveIcon( {double margin = 10}) {
+Widget addRemoveIcon({double margin = 10}) {
   return Container(
     height: 55.h,
     width: 90.w,

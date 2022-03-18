@@ -5,7 +5,12 @@ const String images = 'assets/image';
 
 const Map assets = {
   ///
-  ///Home Food Page
+  ///Splash Screen
+  ///
+  'logo_part_1': '$images/logo_part_1.png',
+
+  ///
+  ///Home Screen
   ///
   'food1': AssetImage('$images/food1.png'),
   'food0': AssetImage('$images/food0.png'),

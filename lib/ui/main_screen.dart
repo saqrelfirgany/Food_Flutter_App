@@ -4,6 +4,9 @@ import 'package:food_flutter_app/ui/home/main_food_page.dart';
 import 'package:food_flutter_app/utils/colors.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
+import 'auth/sgin_up_screen.dart';
+import 'profile/profile_screen.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
@@ -18,8 +21,8 @@ class _MainScreenState extends State<MainScreen> {
     return [
       MainFoodPage(),
       Container(child: Center(child: Text('1'))),
-      Container(child: Center(child: Text('2'))),
-      Container(child: Center(child: Text('3'))),
+      SignUpScreen(),
+      ProfileScreen(),
     ];
   }
 
@@ -100,7 +103,7 @@ class _MainScreenState extends State<MainScreen> {
         duration: Duration(milliseconds: 200),
       ),
       navBarStyle:
-          NavBarStyle.style4, // Choose the nav bar style with this property.
+          NavBarStyle.style11, // Choose the nav bar style with this property.
     );
   }
 }

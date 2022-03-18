@@ -1,9 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_flutter_app/controllers/popular_product_controller.dart';
-import 'package:food_flutter_app/controllers/recommended_controller.dart';
 import 'package:food_flutter_app/route/routes.dart';
+import 'package:food_flutter_app/ui/splash/splash_screen.dart';
 import 'package:get/get.dart';
 import 'core/dependencies/dependencies.dart' as dep;
 
@@ -11,11 +10,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dep.init();
   runApp(
-    DevicePreview(
-      enabled: true,
-      tools: [...DevicePreview.defaultTools],
-      builder: (context) => const MyApp(),
-    ),
+    // DevicePreview(
+    //   enabled: true,
+    //   tools: [...DevicePreview.defaultTools],
+    //   builder: (context) => const MyApp(),
+    // ),
+    const MyApp(),
   );
 }
 
@@ -24,11 +24,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.find<PopularProductController>().getPopularProductList();
-    Get.find<RecommendedController>().getRecommendedProductList();
-    // Get.find<PostController>().getPosts;
     return ScreenUtilInit(
-      designSize: const Size(393, 830),
+      designSize: const Size(412, 732),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: () => GetMaterialApp(
@@ -46,9 +43,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/',
+        // initialRoute: '/',
         getPages: routes,
-        // home: const MainFoodPage(),
+        home: const SplashScreen(),
       ),
     );
   }
