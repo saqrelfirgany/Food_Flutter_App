@@ -1,6 +1,9 @@
 # Food Flutter App
 
-#### Clean Code & Clean Structure with Getx And Real API.
+#### Clean Code.
+#### Clean Structure.
+#### Getx.
+#### API.
 #### Responsive UI.
 
 #### Packages:
