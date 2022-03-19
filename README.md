@@ -2,14 +2,13 @@
 
 #### Clean Code & Clean Structure with Getx And Real API.
 #### Responsive UI.
-#### Main Food Screen , Popular and Recommended Derails Screens.
-#### Cart Functionality.
 
 #### Packages:
 - get 
 - flutter_screenutil
 - dots_indicator
 - persistent_bottom_nav_bar
+- shared_preferences
 - device_preview
 # Screenshots 
 
