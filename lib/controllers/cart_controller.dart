@@ -1,9 +1,11 @@
 import 'package:food_flutter_app/controllers/popular_product_controller.dart';
 import 'package:food_flutter_app/controllers/recommended_controller.dart';
-import 'package:food_flutter_app/core/repository/cart_repo.dart';
 import 'package:food_flutter_app/models/cart_model.dart';
 import 'package:food_flutter_app/models/products_model.dart';
 import 'package:get/get.dart';
+
+import '../repository/cart_repo.dart';
+
 
 class CartController extends GetxController {
   final CartRepo cartRepo;

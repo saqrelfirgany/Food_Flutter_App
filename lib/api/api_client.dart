@@ -46,7 +46,10 @@ class ApiClient extends GetConnect implements GetxService {
     }
   }
 
-  Future<dynamic> postData({required String uri, required dynamic body}) async {
+  Future<dynamic> postData({
+    required String uri,
+    required dynamic body,
+  }) async {
     try {
       Response response = await post(
         uri,

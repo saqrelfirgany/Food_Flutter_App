@@ -1,6 +1,7 @@
-import 'package:food_flutter_app/core/repository/recommended_repo.dart';
 import 'package:food_flutter_app/models/products_model.dart';
 import 'package:get/get.dart';
+
+import '../repository/recommended_repo.dart';
 
 class RecommendedController extends GetxController {
   final RecommendedRepo recommendedRepo;

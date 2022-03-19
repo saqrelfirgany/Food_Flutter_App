@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 import '../../controllers/auth_controller.dart';
 import '../../route/routes.dart';
 import '../../utils/colors.dart';
 import '../components.dart';
 import '../widgets/big_text.dart';
-import 'auth_components.dart';
 
 class SignInScreen extends GetWidget<AuthController> {
   const SignInScreen({Key? key}) : super(key: key);
@@ -109,7 +105,7 @@ class SignInScreen extends GetWidget<AuthController> {
                       ),
                       press: () {
                         FocusScope.of(context).unfocus();
-                        controller.signInSimulator();
+                        controller.register();
                       },
                     ),
                   ),

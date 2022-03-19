@@ -5,7 +5,7 @@ import 'package:food_flutter_app/route/routes.dart';
 import 'package:food_flutter_app/ui/auth/sgin_up_screen.dart';
 import 'package:food_flutter_app/ui/splash/splash_screen.dart';
 import 'package:get/get.dart';
-import 'core/dependencies/dependencies.dart' as dep;
+import 'package:food_flutter_app/dependencies/dependencies.dart' as dep;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

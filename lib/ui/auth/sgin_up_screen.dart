@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/ui/widgets/big_text.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 import '../../controllers/auth_controller.dart';
 import '../../route/routes.dart';
 import '../../utils/colors.dart';
 import '../components.dart';
-import 'auth_components.dart';
 
 class SignUpScreen extends GetWidget<AuthController> {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -103,7 +101,7 @@ class SignUpScreen extends GetWidget<AuthController> {
                       ),
                       press: () {
                         FocusScope.of(context).unfocus();
-                        controller.signInSimulator();
+                        controller.register();
                       },
                     ),
                   ),

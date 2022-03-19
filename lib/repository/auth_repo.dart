@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
-import '../../models/login_model.dart';
+import '../../models/sign_up_model.dart';
 import '../../utils/app_constants.dart';
 import '../api/api_client.dart';
 
@@ -27,10 +27,10 @@ class AuthRepo extends GetxService {
     return await apiClient.getData(uri: AppConstants.tokenUri);
   }
 
-  Future<Response> getRegister({required LoginModel loginModel}) async {
+  Future<Response> getRegister({required SignUpModel signUpModel}) async {
     return await apiClient.postData(
       uri: AppConstants.registerUri,
-      body: loginModel.toJson(),
+      body: signUpModel.toJson(),
     );
   }
 

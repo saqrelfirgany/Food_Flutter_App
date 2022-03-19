@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_flutter_app/ui/profile/profile_components.dart';
 
 import '../../utils/colors.dart';
+import '../components.dart';
 import '../widgets/app_icon.dart';
 import '../widgets/big_text.dart';
 

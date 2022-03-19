@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-import '../core/repository/auth_repo.dart';
-import '../models/login_model.dart';
+import '../models/sign_up_model.dart';
 import '../models/response_model.dart';
+import '../repository/auth_repo.dart';
 import '../route/routes.dart';
 import '../ui/components.dart';
 
 class AuthController extends GetxController {
+  ///
+  /// login Repo instance
+  ///
   final AuthRepo loginRepo;
 
   AuthController({required this.loginRepo});
 
+  ///
+  /// Sign Up with Images
+  ///
   final _signUpImages = [
     'g.png',
     't.png',
@@ -21,18 +26,30 @@ class AuthController extends GetxController {
 
   get signUpImages => _signUpImages;
 
+  ///
+  /// isLoading
+  ///
   bool _isLoading = false;
 
   get isLoading => _isLoading;
 
+  ///
+  /// isVisible
+  ///
   bool _isVisible = true;
 
   get isVisible => _isVisible;
 
+  ///
+  /// isReverse
+  ///
   bool _isReverse = false;
 
   get isReverse => _isReverse;
 
+  ///
+  /// Text Editing Controllers
+  ///
   late TextEditingController emailController;
   late TextEditingController passwordController;
   late TextEditingController nameController;
@@ -56,36 +73,63 @@ class AuthController extends GetxController {
     super.onClose();
   }
 
+  ///
+  /// Toggle Reverse for Scroll View sign in & up
+  ///
   void toggleReverse() {
     _isReverse = true;
     update();
   }
 
+  ///
+  /// Change Visibility for password form field
+  ///
   void changeVisibility() {
     _isVisible = !_isVisible;
     update();
   }
 
-  void signInSimulator() async {
+  ///
+  /// Form basic Validation
+  ///
+  bool validate() {
     if (emailController.text.isEmpty) {
-      getSnackBar(title: 'Error', body: 'Enter your user name');
-      return;
+      getSnackBar(title: 'Error', body: 'Enter your Email');
+      return false;
     }
     if (passwordController.text.isEmpty) {
       getSnackBar(title: 'Error', body: 'Enter your password');
-      return;
+      return false;
     }
+    if (nameController.text.isEmpty) {
+      getSnackBar(title: 'Error', body: 'Enter your name');
+      return false;
+    }
+    if (phoneController.text.isEmpty) {
+      getSnackBar(title: 'Error', body: 'Enter your phone');
+      return false;
+    }
+    return true;
+  }
+
+  ///
+  /// Registration method
+  ///
+  void register() async {
+    if (!validate()) return;
+
     _isLoading = true;
     update();
 
     final Response tokenResponse = await loginRepo.getServerToken();
-    LoginModel loginModel = LoginModel(
-      name: emailController.text.trim(),
+    SignUpModel signUpModel = SignUpModel(
+      email: emailController.text.trim(),
       password: passwordController.text.trim(),
-      token: tokenResponse.body['request_token'],
+      name: nameController.text.trim(),
+      phone: phoneController.text.trim(),
     );
     final Response response =
-        await loginRepo.getRegister(loginModel: loginModel);
+        await loginRepo.getRegister(signUpModel: signUpModel);
     late ResponseModel responseModel;
     if (response.statusCode == 200) {
       loginRepo.saveUserToken(token: response.body['request_token']);
@@ -98,6 +142,9 @@ class AuthController extends GetxController {
     update();
   }
 
+  ///
+  /// User LoggedIn bool method
+  ///
   bool userLoggedIn() {
     return loginRepo.userLoggedIn();
   }
