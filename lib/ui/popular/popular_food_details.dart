@@ -98,7 +98,7 @@ class PopularFoodDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: () => Get.offAndToNamed(Routes.mainScreen),
+                    onTap: () => Get.toNamed(Routes.mainScreen),
                     child: const AppIcon(
                       icon: Icons.arrow_back_ios,
                       padding: 4,

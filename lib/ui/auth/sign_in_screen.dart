@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_flutter_app/ui/widgets/big_text.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 import '../../controllers/auth_controller.dart';
 import '../../route/routes.dart';
 import '../../utils/colors.dart';
 import '../components.dart';
+import '../widgets/big_text.dart';
 import 'auth_components.dart';
 
-class SignUpScreen extends GetWidget<AuthController> {
-  const SignUpScreen({Key? key}) : super(key: key);
+class SignInScreen extends GetWidget<AuthController> {
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,32 @@ class SignUpScreen extends GetWidget<AuthController> {
                   ///
                   appLogo(),
                   SizedBox(height: 20.h),
+
+                  ///
+                  /// Hello Title
+                  ///
+                  Container(
+                    alignment: AlignmentDirectional.topStart,
+                    margin: EdgeInsetsDirectional.only(start: 20.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const BigText(
+                          text: 'Hello',
+                          fontWeight: FontWeight.bold,
+                          size: 60,
+                        ),
+                        SizedBox(height: 10.h),
+                        BigText(
+                          text: 'Sign in to your Account',
+                          size: 20,
+                          color: Colors.grey[500]!,
+                        ),
+                        SizedBox(height: 20.h),
+                      ],
+                    ),
+                  ),
 
                   ///
                   /// Email Text Editing Field
@@ -67,29 +95,7 @@ class SignUpScreen extends GetWidget<AuthController> {
                       obscureText: controller.isVisible,
                     ),
                   ),
-                  SizedBox(height: 20.h),
-
-                  ///
-                  /// Name Text Editing Field
-                  ///
-                  textForm(
-                    textEditingController: controller.nameController,
-                    hintText: 'Name',
-                    iconData: Icons.person,
-                    press: () {},
-                  ),
-                  SizedBox(height: 20.h),
-
-                  ///
-                  /// Phone Text Editing Field
-                  ///
-                  textForm(
-                    textEditingController: controller.nameController,
-                    hintText: 'Phone',
-                    iconData: Icons.phone,
-                    press: () {},
-                  ),
-                  SizedBox(height: 40.h),
+                  SizedBox(height: 26.h),
 
                   ///
                   /// Sign In Stadium Button
@@ -99,7 +105,7 @@ class SignUpScreen extends GetWidget<AuthController> {
                       child: Center(
                         child: controller.isLoading
                             ? pleaseWaitButtonState()
-                            : const Text('Sign Up'),
+                            : const Text('Sign In'),
                       ),
                       press: () {
                         FocusScope.of(context).unfocus();
@@ -107,43 +113,31 @@ class SignUpScreen extends GetWidget<AuthController> {
                       },
                     ),
                   ),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 22.h),
 
                   ///
                   /// Have an account already
                   ///
                   InkWell(
-                    onTap: () => Get.toNamed(Routes.signInScreen),
-                    child: BigText(
-                      text: 'Have an account already?',
-                      color: Colors.grey[500]!,
-                    ),
-                  ),
-                  SizedBox(height: 24.h),
-
-                  ///
-                  /// Sign Up With
-                  ///
-                  BigText(
-                    text: 'Sign Up With',
-                    color: Colors.grey[500]!,
-                    size: 20,
-                  ),
-                  SizedBox(height: 24.h),
-                  Wrap(
-                    children: List.generate(
-                      3,
-                      (index) => Padding(
-                        padding: EdgeInsetsDirectional.all(14.w),
-                        child: CircleAvatar(
-                          radius: 24.r,
-                          backgroundImage: AssetImage(
-                            'assets/image/${controller.signUpImages[index]}',
-                          ),
+                    onTap: () => Get.toNamed(Routes.signUpScreen),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        BigText(
+                          text: 'Don`t Have an account? ',
+                          size: 20,
+                          color: Colors.grey[500]!,
                         ),
-                      ),
+                        BigText(
+                          text: 'Create',
+                          size: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ],
                     ),
-                  )
+                  ),
+                  SizedBox(height: 24.h),
                 ],
               ),
             ),

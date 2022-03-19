@@ -6,18 +6,42 @@ import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 import '../../theme/theme.dart';
 import '../../utils/colors.dart';
+import '../components.dart';
+
+Widget textForm({
+  required TextEditingController textEditingController,
+  required String hintText,
+  required IconData iconData,
+  VoidCallback? press,
+}) {
+  return textFormContainer(
+    child: TextField(
+      controller: textEditingController,
+      onTap: press,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsetsDirectional.all(24.w),
+        hintText: hintText,
+        prefixIcon: Icon(iconData, color: AppColors.yellowColor),
+        hintStyle: TextStyle(fontSize: 20.sp),
+        focusedBorder: InputBorder.none,
+        enabledBorder: InputBorder.none,
+        border: InputBorder.none,
+      ),
+    ),
+  );
+}
 
 Widget visibility() {
   return GetBuilder<AuthController>(
     builder: (controller) => controller.isVisible
         ? iconVisible(
-      press: () => controller.changeVisibility(),
-      icon: Icons.visibility_off,
-    )
+            press: () => controller.changeVisibility(),
+            icon: Icons.visibility_off,
+          )
         : iconVisible(
-      press: () => controller.changeVisibility(),
-      icon: Icons.visibility,
-    ),
+            press: () => controller.changeVisibility(),
+            icon: Icons.visibility,
+          ),
   );
 }
 

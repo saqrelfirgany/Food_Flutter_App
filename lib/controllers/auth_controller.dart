@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-
 import '../core/repository/auth_repo.dart';
 import '../models/login_model.dart';
 import '../models/response_model.dart';
@@ -13,6 +12,14 @@ class AuthController extends GetxController {
   final AuthRepo loginRepo;
 
   AuthController({required this.loginRepo});
+
+  final _signUpImages = [
+    'g.png',
+    't.png',
+    'f.png',
+  ];
+
+  get signUpImages => _signUpImages;
 
   bool _isLoading = false;
 
@@ -26,22 +33,26 @@ class AuthController extends GetxController {
 
   get isReverse => _isReverse;
 
-  late String password, name;
-
-  late TextEditingController userNameController;
+  late TextEditingController emailController;
   late TextEditingController passwordController;
+  late TextEditingController nameController;
+  late TextEditingController phoneController;
 
   @override
   void onInit() {
-    userNameController = TextEditingController();
+    emailController = TextEditingController();
     passwordController = TextEditingController();
+    nameController = TextEditingController();
+    phoneController = TextEditingController();
     super.onInit();
   }
 
   @override
   void onClose() {
-    userNameController.dispose();
+    emailController.dispose();
     passwordController.dispose();
+    nameController.dispose();
+    phoneController.dispose();
     super.onClose();
   }
 
@@ -56,7 +67,7 @@ class AuthController extends GetxController {
   }
 
   void signInSimulator() async {
-    if (userNameController.text.isEmpty) {
+    if (emailController.text.isEmpty) {
       getSnackBar(title: 'Error', body: 'Enter your user name');
       return;
     }
@@ -69,7 +80,7 @@ class AuthController extends GetxController {
 
     final Response tokenResponse = await loginRepo.getServerToken();
     LoginModel loginModel = LoginModel(
-      name: userNameController.text.trim(),
+      name: emailController.text.trim(),
       password: passwordController.text.trim(),
       token: tokenResponse.body['request_token'],
     );

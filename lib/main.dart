@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/route/routes.dart';
+import 'package:food_flutter_app/ui/auth/sgin_up_screen.dart';
 import 'package:food_flutter_app/ui/splash/splash_screen.dart';
 import 'package:get/get.dart';
 import 'core/dependencies/dependencies.dart' as dep;
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
         ),
         // initialRoute: '/',
         getPages: routes,
-        home: const SplashScreen(),
+        home: const SignUpScreen(),
       ),
     );
   }

@@ -3,13 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_flutter_app/utils/colors.dart';
 
 class BigText extends StatelessWidget {
-  Color color;
-  String text;
-  double size;
-  TextOverflow textOverflow;
-  FontWeight fontWeight;
+  final Color color;
+  final String text;
+  final double size;
+  final TextOverflow textOverflow;
+  final FontWeight fontWeight;
 
-  BigText({
+  const BigText({
     Key? key,
     this.color = AppColors.mainBlackColor,
     required this.text,

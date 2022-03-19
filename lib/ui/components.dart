@@ -10,6 +10,18 @@ import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 import '../controllers/cart_controller.dart';
 import '../controllers/popular_product_controller.dart';
+import '../utils/assets_helper.dart';
+
+Widget appLogo() {
+  return Center(
+    child: Image.asset(
+      assets['logo_part_1'],
+      fit: BoxFit.cover,
+      height: 80.h,
+      width: 80.h,
+    ),
+  );
+}
 
 Widget textFormContainer({required Widget child}) {
   return Container(
